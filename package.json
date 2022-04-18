@@ -1,0 +1,44 @@
+{
+  "name": "worldkit",
+  "type": "module",
+  "version": "1.0.1",
+  "description": "Virtual World Kit",
+  "main": "index.js",
+  "scripts": {
+    "save": "git add .; git commit -m 'New Release'; git push; npm version patch; npm publish; git push;",
+    "migrate": "knex migrate:latest",
+    "server": "./node_modules/.bin/nodemon -e js,html,json ./index.js",
+    "production": "node index.js",
+    "test": "./node_modules/.bin/eslint .",
+    "start": "npm run migrate && npm run server"
+  },
+  "dependencies": {
+    "@vscode/sqlite3": "^5.0.7",
+    "axios": "^0.26.1",
+    "knex": "^1.0.4",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-ejs": "^4.3.0",
+    "koa-error": "^3.2.0",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^3.0.0",
+    "koa-passport": "^4.0.1",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.0",
+    "koa-static": "^4.0.1",
+    "lodash": "^4.17.21",
+    "objection": "^3.0.1",
+    "passport-auth0": "^1.0.0",
+    "passport-github": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^5.0.2",
+    "traverse": "^0.6.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "nodemon": "^2.0.15"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

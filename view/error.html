@@ -1,0 +1,18 @@
+<div class="card text-white bg-danger mb-3">
+  <div class="card-header">System Error</div>
+  <div class="card-body">
+    <h5 class="card-title"><%= name %></h5>
+    <p class="card-text"><%= message %></p>
+   </div>
+  <ul class="list-group list-group-flush">
+    <% for (const item of stack.split('\n')) { %>
+
+      <% if( item.includes('node_modules') ){ %>
+        <li class="list-group-item text-muted"><%= item %></li>
+      <% } else { %>
+        <li class="list-group-item"><%= item %></li>
+      <% } %>
+
+    <% } %>
+  </ul>
+</div>

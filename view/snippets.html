@@ -1,0 +1,31 @@
+<!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+    <% for (const fragment of path) { %>
+      <li class="breadcrumb-item"><a href="#">fragment</a></li>
+    <% } %>
+
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav> -->
+
+<% for (const bot of [].filter(o=>o.type==='bot')) { %>
+
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= bot.title %></h6>
+      <p class="card-text"><%= bot.message %></p>
+      <% for (const {title, url} of bot.links) { %>
+        <a href="<%= url %>" class="card-link"><%= title %></a>
+      <% } %>
+    </div>
+    <div class="card-footer text-muted">
+    by <%= bot.name %>
+    </div>
+  </div>
+
+
+
+<% } %>

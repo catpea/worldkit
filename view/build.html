@@ -1,0 +1,69 @@
+
+
+<div class="container-fluid">
+  <div class="row align-items-start">
+
+    <div class="col-md-9">
+      <% for (const bot of [].filter(o=>o.type==='bot')) { %>
+
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= bot.title %></h6>
+            <p class="card-text"><%= bot.message %></p>
+            <% for (const {title, url} of bot.links) { %>
+              <a href="<%= url %>" class="card-link"><%= title %></a>
+            <% } %>
+          </div>
+          <div class="card-footer text-muted">
+          by <%= bot.name %>
+          </div>
+        </div>
+
+
+
+      <% } %>
+
+
+      <pre>
+        <code>
+          <%= locals.destination?'\n'+JSON.stringify(destination, null, ' '):'nodestination' %>
+        </code>
+      </pre>
+      <pre>
+        <code>
+          <%= locals.room?'\n'+JSON.stringify(room, null, ' '):'noroom' %>
+        </code>
+      </pre>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <% if(room.parent) { %>
+        <div class="card mb-3 shadow">
+          <img src="<%= wwwroot %>assets/graphics/bar-4.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= room.parent.name %></h5>
+            <p class="card-text"><%= room.parent.description %></p>
+            <a href="/build/<%= room.parent.name %>" class="btn btn-secondary">return to <%= room.parent.name %> </a>
+          </div>
+        </div>
+      <% } %>
+
+      <% for (const location of room.doors) { %>
+        <div class="card mb-3 shadow">
+          <img src="<%= wwwroot %>assets/graphics/bar-5.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= location.name %></h5>
+            <p class="card-text"><%= location.description %></p>
+            <a href="/build/<%= location.name %>" class="btn btn-primary">go to <%= location.name %> </a>
+          </div>
+        </div>
+      <% } %>
+
+    </div>
+
+  </div>
+</div>

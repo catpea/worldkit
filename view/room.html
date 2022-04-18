@@ -1,0 +1,61 @@
+
+
+<div class="container-fluid">
+  <div class="row align-items-start">
+
+    <div class="col-md-9">
+
+
+      <h4>
+        <span class="color-info"><%= room.title %></span>
+        <small class="text-muted"><%= room.description %></small>
+      </h4>
+
+
+
+
+      <pre>
+        <code>
+          <%= locals.destination?'\n'+JSON.stringify(destination, null, ' '):'nodestination' %>
+        </code>
+      </pre>
+      <pre>
+        <code>
+          <%= locals.room?'\n'+JSON.stringify(room, null, ' '):'noroom' %>
+        </code>
+      </pre>
+
+    </div>
+
+    <div class="col-md-3">
+
+
+      <div class="card mb-3 shadow">
+        <img src="<%= wwwroot %>assets/graphics/bar-8.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><%= room.title %></h5>
+          <p class="card-text"><%= room.description %></p>
+        </div>
+      </div>
+
+    <div class="card mb-3 shadow">
+      <img src="<%= wwwroot %>assets/graphics/bar-2.jpg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Bots</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Alice Bot</li>
+        <li class="list-group-item">Hendrix AI</li>
+        <li class="list-group-item">Bob THe Builder</li>
+      </ul>
+      <div class="card-body">
+
+        <a href="#" class="btn btn-primary">Message The Bots</a>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+</div>

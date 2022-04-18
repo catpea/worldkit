@@ -1,0 +1,42 @@
+<div class="d-grid gap-3">
+
+<div class="card" class="">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/auth/github" class="card-link">Sign in with Github</a>
+    <a href="/auth/auth0" class="card-link">Sign in with Auth0</a>
+  </div>
+</div>
+
+<div class="card" class="">
+  <div class="card-body">
+		<form action="/auth/local" method="post">
+
+      <section class="messages">
+        <% locals.messages?.forEach(function(message) { %>
+        <p class="class="form-text""><%= message %></p>
+        <% }); %>
+      </section>
+
+		  <div class="mb-3">
+		    <label for="inputUsername" class="form-label">Username address</label>
+		    <input name="username" type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelp">
+		    <div id="usernameHelp" class="form-text"></div>
+		  </div>
+
+		  <div class="mb-3">
+		    <label for="inputPassword" class="form-label">Password</label>
+		    <input name="password" type="password" class="form-control" id="inputPassword">
+		  </div>
+
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+		  <button type="submit" class="btn btn-primary">Submit</button>
+			<p class="class="form-text"">Don't have an account? <a href="/signup">Sign up</a></p>
+
+		</form>
+	</div>
+</div>
+
+</div>

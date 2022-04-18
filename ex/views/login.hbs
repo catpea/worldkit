@@ -1,0 +1,90 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/auth/github" class="card-link">Sign in with Github</a>
+    <a href="/auth/auth0" class="card-link">Sign in with Auth0</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+		<form action="/auth/local" method="post">
+
+		  <div class="mb-3">
+		    <label for="inputUsername" class="form-label">Username address</label>
+		    <input type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelp">
+		    <div id="usernameHelp" class="form-text"></div>
+		  </div>
+
+		  <div class="mb-3">
+		    <label for="inputPassword" class="form-label">Password</label>
+		    <input type="password" class="form-control" id="inputPassword">
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Submit</button>
+			<p class="class="form-text"">Don't have an account? <a href="/signup">Sign up</a></p>
+		</form>
+	</div>
+</div>
+
+
+<div class="container site-header">
+	<div class="card">
+	  <div class="card-body">
+			<h1 class="display-3">Login</h1>
+			<a class="btn btn-block btn-social btn-lg btn-github" href="/auth/github">
+				<span class="fab fa-github"></span>
+				Sign in with Github
+			</a>
+			<br>
+			<a class="btn btn-block btn-social btn-lg btn-openid" href="/auth/auth0">
+				<span class="fas fa-shield-alt"></span>
+				Sign in with Auth0
+			</a>
+			<br>
+
+
+
+
+
+
+			<section class="prompt">
+				<h1>Local Sign-in</h1>
+				<% if (hasMessages) { %>
+				<section class="messages">
+					<% messages.forEach(function(message) { %>
+					<p><%= message %></p>
+					<% }); %>
+				</section>
+				<% } %>
+				<form action="/auth/local" method="post">
+					<section>
+						<label for="username">Username</label>
+						<input id="username" name="username" type="text" autocomplete="username" required autofocus>
+					</section>
+					<section>
+						<label for="current-password">Password</label>
+						<input id="current-password" name="password" type="password" autocomplete="current-password" required>
+					</section>
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+					<button type="submit">Sign in</button>
+				</form>
+				<hr>
+				<p class="help">Don't have an account? <a href="/signup">Sign up</a></p>
+			</section>
+			<footer class="info">
+
+			</footer>
+
+
+
+
+
+
+
+
+	  </div>
+	</div>
+</div>
